@@ -35,12 +35,7 @@ def addUser(uid,pw):
         json.dump(dbData,dbWrite)
     print("Account created complete")
         
-
-
-
-
-            
-    
+  
 def tokenGen(userId):
     token=userId
     uidL = len(userId)
@@ -48,7 +43,10 @@ def tokenGen(userId):
         ranN =randint(0,9)
         token += str(ranN * uidL)
         print(token)
-    return token    
-        
+    return token  
 
-    
+
+def login():
+    print("add login functions here")
+    #maybe
+        
