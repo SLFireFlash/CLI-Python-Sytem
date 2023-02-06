@@ -1,2 +1,8 @@
 # CLI-Python-Sytem
-<h2>cli base login system with python</h2>
+<h1>features</h1>
+<ul>
+  <li>new user can register to sysyem</li>
+  <li>users can login to thire account</li>
+</ul>
+<h3>json file works as db of system.</h3>
+
