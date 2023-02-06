@@ -9,7 +9,7 @@ while True:
         uId , pWord = funs.loginData()
         break
     elif(start == 2):
-        regId ,regPw = funs.regData()
+        funs.regData()
         break
     else:
         print("\tWrong Input Try Again..")

@@ -1,4 +1,6 @@
+import json
 from random import randint
+
 
 
 def loginData():
@@ -13,14 +15,40 @@ def loginData():
         
 def regData():
     regId =input("\tUser Name:")
+    regPw =input("\tEnter Password:")
+    regPwCc=input("\tRe Enter Password:")
     while True:
-        if( regPWrod != regPWrodConfrom):
-            print("Password did not match try again")
-            regPWrod =input("\tPassword :")
-            regPWrodConfrom = input("\tRe Enter Password:")
+        if(regPw != regPwCc):
+            print("password wrong try again")
+            regPw =input("\tEnter Password:")
+            regPwCc=input("\tRe Enter Password:")
         else:
-            return regId , regPWrodConfrom
+            break
+    addUser(regId,regPwCc)
 
+def addUser(uid,pw):
+    with open("json/db.json","r")as dbRead:
+        dbData =json.load(dbRead)
+    newUser ={"id":uid,"pw":pw}
+    dbData.append(newUser)
+    with open("json/db.json","w")as dbWrite:
+        json.dump(dbData,dbWrite)
+    print("Account created complete")
+        
+
+
+
+
+            
+    
 def tokenGen(userId):
-    numbers =[0,1,2,3,4,5,6,7,8,9];
-    UidL = len(userId)
+    token=userId
+    uidL = len(userId)
+    for num in range(0,uidL):
+        ranN =randint(0,9)
+        token += str(ranN * uidL)
+        print(token)
+    return token    
+        
+
+    
