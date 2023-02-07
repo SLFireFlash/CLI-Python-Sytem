@@ -3,10 +3,9 @@
 <ul>
   <li>new user can register to sysyem</li>
   <li>users can login to account</li>
+  <li>json file works as db of system</li>
+  <li>everything seperated using functions</li>
 </ul>
-<h3>json file works as db of system.</h3>
-<h3>everything seperated using functions</h3>
-
 <h1>included functions</h1>
 <ul>
   <li>bootUp() startup prints and inputs</li>
