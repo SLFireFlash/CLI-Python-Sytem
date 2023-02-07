@@ -2,6 +2,19 @@ import json
 from random import randint
 
 
+def bootUp():
+    start =int(input("\t1 To Login:\n\t2 To Register:\n\t0 To exit\n\t"))
+    if(start == 0):
+        print("\tGood Bye...")
+        exit()
+    elif(start == 1):
+        uId ,pWord = loginData()
+        login(uId,pWord)
+    elif(start == 2):
+        regData()
+    else:
+        print("\tWrong Input Try Again..")
+        
 
 def loginData():
     while True:
@@ -46,7 +59,22 @@ def tokenGen(userId):
     return token  
 
 
-def login():
-    print("add login functions here")
-    #maybe
+def login(uid,pw):
+    with open ("json/db.json","r")as dbRead:
+        dbData =json.load(dbRead)
+    for num in range(0,len(dbData)):
+        if(dbData[num]['id'] == uid):
+            if(dbData[num]['pw']== pw):
+                print("\tlogin completed\n")
+                print("You login as " + dbData[num]['id'])
+                logSt =True
+                break
+            else:
+                print("worng Password Try Again")
+                uid,pw = loginData()
+
+    if logSt != True:
+        print("login Failed")
+        bootUp()
+        
         
